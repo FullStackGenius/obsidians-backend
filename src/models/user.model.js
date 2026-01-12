@@ -20,7 +20,8 @@ const userSchema = new mongoose.Schema(
     },
     profileImage: {
       type: String,
-      trim: true
+      trim: true,
+      default: null
     },
     password: {
       type: String,
@@ -29,7 +30,19 @@ const userSchema = new mongoose.Schema(
     }
   },
   {
-    timestamps: true
+    timestamps: true,
+    toJSON: {
+    transform: (doc, ret) => {
+      if (ret.profileImage) {
+        // Option A - most common
+        ret.profileImage = `${process.env.BASE_URL}/uploads/profile/${ret.profileImage}`;
+
+        // Option B - more explicit (if profileImage already contains /uploads/)
+        // ret.profileImage = `${process.env.BASE_URL}/uploads/profile/${ret.profileImage}`;
+      }
+      return ret;
+    }
+  }
   }
 );
 

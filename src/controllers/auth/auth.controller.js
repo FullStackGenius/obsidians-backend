@@ -63,7 +63,13 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
     });
-
+res.cookies.set('auth_token', token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+    path: '/'
+  })
     return successResponse(res, {
       statusCode: 201,
       message: "User registered successfully",
