@@ -8,6 +8,7 @@ const FOLDER_MAP = {
   blog: "public/uploads/blog",
   product: "public/uploads/products",
   banner: "public/uploads/banners",
+  companylogo : "public/uploads/companylogo"
   // you can easily add more later
   // document: "public/uploads/documents",
 };
@@ -19,7 +20,7 @@ const storage = multer.diskStorage({
       req.uploadSection ||           // highest priority - if you set it manually
       req.body.uploadSection ||      // from form field
       req.body.type ||               // another common name
-      "profile";                     // ← most common default in 2026
+      "profile" || "companylogo";                     // ← most common default in 2026
 
     const uploadPath = FOLDER_MAP[section] || "public/uploads/others";
 
