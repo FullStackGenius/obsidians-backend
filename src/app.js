@@ -8,6 +8,7 @@ import connectDB from './config/db.js'
 import authRoutes from './routes/auth.route.js'
 import userRoutes from './routes/user.route.js'
 import manageRoutes from './routes/manage.route.js'
+import testimonialRoutes from './routes/testimonial.route.js'
 dotenv.config()
 connectDB()
 
@@ -32,5 +33,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/company-logo',manageRoutes)
+app.use('/api/testimonial',testimonialRoutes)
 
 export default app

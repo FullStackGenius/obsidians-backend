@@ -4,6 +4,18 @@ node_modules/
 # Environment file
 .env
 
+# Upload folders (ignore files, keep folders)
+public/uploads/companylogo/*
+public/uploads/others/*
+public/uploads/profile/*
+public/uploads/testimonial/*
+
+# Allow folder placeholder
+!public/uploads/companylogo/.gitkeep
+!public/uploads/others/.gitkeep
+!public/uploads/profile/.gitkeep
+!public/uploads/testimonial/.gitkeep
+
 # Logs
 *.log
 
