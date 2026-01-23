@@ -9,12 +9,14 @@ public/uploads/companylogo/*
 public/uploads/others/*
 public/uploads/profile/*
 public/uploads/testimonial/*
+public/uploads/bannerimage/*
 
 # Allow folder placeholder
 !public/uploads/companylogo/.gitkeep
 !public/uploads/others/.gitkeep
 !public/uploads/profile/.gitkeep
 !public/uploads/testimonial/.gitkeep
+!public/uploads/bannerimage/.gitkeep
 
 # Logs
 *.log
