@@ -6,15 +6,31 @@ const FOLDER_MAP = {
   placeholderImage: "public/uploads/testimonial",
   videoFile: "public/uploads/testimonial",
   companylogo: "public/uploads/companylogo",
-  bannerImage: "public/uploads/bannerimage",
+  bannerImage: "public/uploads/home",
+  contentImage: "public/uploads/home",
+  sideImage: "public/uploads/home",
+  buttonIcon: "public/uploads/home",
+  platformIcon: "public/uploads/home",
+  reviewImages: "public/uploads/home",
+  featuredImage: "public/uploads/project",
+  projectInfoImage: "public/uploads/project",
+  projectSolutionImage: "public/uploads/project",
+  clientImage: "public/uploads/project",
 };
 
 const storage = multer.diskStorage({
   destination: async (req, file, cb) => {
     try {
       // 🔥 Folder decide by FIELD NAME (BEST)
-      const uploadPath =
-        FOLDER_MAP[file.fieldname] || "public/uploads/others";
+      let uploadPath = FOLDER_MAP[file.fieldname] || "public/uploads/others";
+      const field = file.fieldname;
+      // Option A: flat naming style (recommended)
+      if (field.startsWith("services_image_")) {
+        uploadPath = "public/uploads/project/services";
+      }
+      if (field.startsWith("technologies_image_")) {
+        uploadPath = "public/uploads/project/technologies";
+      }
 
       await fs.mkdir(uploadPath, { recursive: true });
       cb(null, uploadPath);

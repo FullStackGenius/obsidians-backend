@@ -10,6 +10,8 @@ public/uploads/others/*
 public/uploads/profile/*
 public/uploads/testimonial/*
 public/uploads/bannerimage/*
+public/uploads/home/*
+public/uploads/about/*
 
 # Allow folder placeholder
 !public/uploads/companylogo/.gitkeep
@@ -17,6 +19,8 @@ public/uploads/bannerimage/*
 !public/uploads/profile/.gitkeep
 !public/uploads/testimonial/.gitkeep
 !public/uploads/bannerimage/.gitkeep
+!public/uploads/home/.gitkeep
+!public/uploads/about/.gitkeep
 
 # Logs
 *.log
