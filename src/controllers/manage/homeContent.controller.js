@@ -13,7 +13,7 @@ export const homeBannerContent = async (req, res) => {
       console.log("✅ HomeContent default data created");
     }
     const content = await HomeContent.findOne({ status: true }).lean();
-    content.ImageBasePath = "http://localhost:2001/uploads/home/";
+    content.ImageBasePath = `${process.env.BASE_URL}/uploads/home/`;
     // console.log(content)
     return successResponse(res, {
       statusCode: 201,
