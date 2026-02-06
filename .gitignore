@@ -12,6 +12,9 @@ public/uploads/testimonial/*
 public/uploads/bannerimage/*
 public/uploads/home/*
 public/uploads/about/*
+public/uploads/project/*
+public/uploads/services/*
+public/uploads/technologies/*
 
 # Allow folder placeholder
 !public/uploads/companylogo/.gitkeep
@@ -21,6 +24,9 @@ public/uploads/about/*
 !public/uploads/bannerimage/.gitkeep
 !public/uploads/home/.gitkeep
 !public/uploads/about/.gitkeep
+!public/uploads/project/.gitkeep
+!public/uploads/services/.gitkeep
+!public/uploads/technologies/.gitkeep
 
 # Logs
 *.log

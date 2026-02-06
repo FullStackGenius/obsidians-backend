@@ -214,3 +214,31 @@ export const createProject = async (req, res) => {
     });
   }
 };
+
+
+export const getAllProjects = async (req, res) => {
+  try {
+    const projects = await Project.find()
+      .sort({ createdAt: -1 })
+      .populate({
+        path: "services",
+        options: { sort: { order: 1 } },
+      })
+      .populate({
+        path: "technologies",
+        options: { sort: { order: 1 } },
+      });
+
+    return res.status(200).json({
+      success: true,
+      count: projects.length,
+      data: projects,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch projects",
+      error: error.message,
+    });
+  }
+};

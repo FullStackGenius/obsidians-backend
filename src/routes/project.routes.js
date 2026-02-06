@@ -1,6 +1,6 @@
 import express from "express";
 import upload from "../middlewares/upload.middleware.js";
-import { createProject } from "../controllers/project/project.controller.js";
+import { createProject ,getAllProjects } from "../controllers/project/project.controller.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
 const router = express.Router();
 import { setUploadSection } from "../middlewares/uploadSection.js";
@@ -19,6 +19,12 @@ router.post(
 //     // { name: "reviewImages", maxCount: 5 },
 //   ]),
   createProject
+);
+
+router.get(
+  "/get-projects",
+  authMiddleware,
+  getAllProjects
 );
 
 export default router;
