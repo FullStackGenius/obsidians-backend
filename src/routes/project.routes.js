@@ -4,6 +4,8 @@ import { createProject ,getAllProjects } from "../controllers/project/project.co
 import authMiddleware from "../middlewares/auth.middleware.js";
 const router = express.Router();
 import { setUploadSection } from "../middlewares/uploadSection.js";
+import specificLoginLimiter from "../middlewares/specificRateLimit.middleware.js";
+
 // 🔥 IMPORTANT: upload.any() (dynamic fields)
 // router.post("/create",upload.any(), createProject);
 router.post(
@@ -24,6 +26,7 @@ router.post(
 router.get(
   "/get-projects",
   authMiddleware,
+  specificLoginLimiter,
   getAllProjects
 );
 
